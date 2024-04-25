@@ -1,10 +1,9 @@
-import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // TODO
-const HeroesPage = lazy(() => import('@/pages/HeroesPage'));
-const HeroProfile = lazy(() => import('@/pages/HeroProfile'));
-const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
+import HeroesPage from '@/pages/HeroesPage';
+import HeroProfile from '@/pages/HeroProfile';
+import ErrorPage from '@/pages/ErrorPage';
 
 export const ROUTER_PATH = {
   HEROES: '/heroes',
