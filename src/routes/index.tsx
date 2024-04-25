@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 // TODO
 import HeroesPage from '@/pages/HeroesPage';
-import HeroProfile from '@/pages/HeroProfile';
+import HeroProfilePage from '@/pages/HeroProfilePage';
 import ErrorPage from '@/pages/ErrorPage';
 
 export const ROUTER_PATH = {
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         path: ROUTER_PATH.HEROES,
         children: [
           {
-            element: <HeroProfile />,
+            element: <HeroProfilePage />,
             path: ROUTER_PATH.HERO_PROFILE,
           },
         ],
