@@ -31,4 +31,6 @@ const AbilityCounter = memo(
   },
 );
 
+AbilityCounter.displayName = 'AbilityCounter';
+
 export default AbilityCounter;
