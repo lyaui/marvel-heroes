@@ -1,10 +1,31 @@
+import type { HeroProfile } from '@/types/hero';
+
 type AbilityCounterProps = {
-  label: string;
+  name: keyof HeroProfile;
   value: number;
+  onUpdate: (name: keyof HeroProfile, value: number) => void;
 };
 
-function AbilityCounter({ label, value }: AbilityCounterProps) {
-  return <div>{`${label ? label.toUpperCase() : '--'}: ${value ?? '--'}`}</div>;
+function AbilityCounter({ name, value, onUpdate }: AbilityCounterProps) {
+  const handleDecrementClick = () => {
+    const updateVal = value - 1;
+    if (updateVal < 0) return;
+    onUpdate(name, updateVal);
+  };
+
+  const handleIncrementClick = () => {
+    const updateVal = value + 1;
+    onUpdate(name, updateVal);
+  };
+
+  return (
+    <div>
+      <span>{`${name ? name.toUpperCase() : '--'}:`}</span>
+      <button onClick={handleDecrementClick}>-</button>
+      <span>{value}</span>
+      <button onClick={handleIncrementClick}>+</button>
+    </div>
+  );
 }
 
 export default AbilityCounter;
