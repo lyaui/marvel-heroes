@@ -51,19 +51,20 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
 
   if (isPending) return 'Loading';
 
+  if (!editingAbility) return null;
+
   return (
     <>
       {`Rest Points: ${restPoints}`}
-      {editingAbility &&
-        Object.entries(editingAbility).map(([_key, _value]) => (
-          <AbilityCounter
-            key={_key}
-            name={_key as keyof HeroProfile}
-            value={_value}
-            onUpdate={handleUpdateAbility}
-          />
-        ))}
-      <SaveButton />
+      {Object.entries(editingAbility).map(([_key, _value]) => (
+        <AbilityCounter
+          key={_key}
+          name={_key as keyof HeroProfile}
+          value={_value}
+          onUpdate={handleUpdateAbility}
+        />
+      ))}
+      <SaveButton editingAbility={editingAbility} heroId={heroId} />
       {errorMsg}
     </>
   );
