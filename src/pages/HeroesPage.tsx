@@ -9,7 +9,7 @@ function HeroesPage() {
   const navigate = useNavigate();
   const { heroId } = useParams();
 
-  const { isFetching, data = [] } = useQuery({
+  const { isLoading, data = [] } = useQuery({
     queryKey: [],
     queryFn: apiGetHeroList,
   });
@@ -19,7 +19,8 @@ function HeroesPage() {
     navigate(`/heroes/${id}`);
   };
 
-  if (isFetching) return 'Loading...';
+  if (isLoading) return 'Loading...';
+  if (data.length === 0) return 'No Results';
 
   return (
     <>
@@ -30,6 +31,7 @@ function HeroesPage() {
           </li>
         ))}
       </HeroList>
+
       <Outlet />
     </>
   );
