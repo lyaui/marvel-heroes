@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import type { HeroProfile } from '@/types/hero';
@@ -26,21 +26,23 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
   const totalPoints = data ? calcTotalPoints(data) : 0;
   const restPoints = totalPoints - calcTotalPoints(editingAbility);
 
-  const handleUpdateAbility = (name: keyof HeroProfile, value: number) => {
-    setErrorMsg('');
+  const handleUpdateAbility = useCallback(
+    (name: keyof HeroProfile, value: number) => {
+      setErrorMsg('');
 
-    if (!editingAbility) return;
+      setEditingAbility((_preState) => {
+        if (!_preState) return _preState;
 
-    const updateVal = { ...editingAbility, [name]: value };
-    const updateTotal = calcTotalPoints(updateVal);
+        const updateVal = { ..._preState, [name]: value };
+        const updateTotal = calcTotalPoints(updateVal);
 
-    if (updateTotal > totalPoints) {
-      setErrorMsg('No point available');
-      return;
-    }
+        if (updateTotal > totalPoints) return _preState;
 
-    setEditingAbility(updateVal);
-  };
+        return updateVal;
+      });
+    },
+    [totalPoints],
+  );
 
   useEffect(() => {
     if (!data) return;
@@ -51,8 +53,7 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
 
   return (
     <>
-      {`totalPoints: ${totalPoints}`}
-      {`restPoints: ${restPoints}`}
+      {`Rest Points: ${restPoints}`}
       {editingAbility &&
         Object.entries(editingAbility).map(([_key, _value]) => (
           <AbilityCounter
