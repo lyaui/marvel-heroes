@@ -1,22 +1,11 @@
-import { memo } from 'react';
-import type { Hero } from '@/types/hero';
-import HeroCard from '@/components/HeroCard';
+import type { ReactNode } from 'react';
 
 type HeroListProps = {
-  list: Hero[];
-  onClick: (id: string) => void;
+  children: ReactNode;
 };
 
-const HeroList = memo(({ list = [], onClick }: HeroListProps) => {
-  return (
-    <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {list.map((_hero) => (
-        <li key={_hero.id}>
-          <HeroCard hero={_hero} onClick={onClick} />
-        </li>
-      ))}
-    </ul>
-  );
-});
+const HeroList = ({ children }: HeroListProps) => {
+  return <ul style={{ display: 'flex', flexWrap: 'wrap' }}>{children}</ul>;
+};
 
 export default HeroList;
