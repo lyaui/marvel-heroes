@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
-
 import type { Hero } from '@/types/hero';
-import { ROUTER_PATH } from '@/routes';
 
-type HeroCardProps = { hero: Hero };
+type HeroCardProps = {
+  hero: Hero;
+  onClick: (id: string) => void;
+};
 
-const HeroCard = ({ hero }: HeroCardProps) => {
+const HeroCard = ({ hero, onClick }: HeroCardProps) => {
   const { name = '--', image = '', id = '' } = hero;
 
   return (
-    <Link to={ROUTER_PATH.HERO_PROFILE.replace(':heroId', id)}>
+    <div onClick={() => onClick(id)}>
       <p>{name.toUpperCase()}</p>
       <img src={image} alt={name} />
-    </Link>
+    </div>
   );
 };
 
