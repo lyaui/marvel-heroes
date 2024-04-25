@@ -10,7 +10,7 @@ const HeroCard = ({ hero }: HeroCardProps) => {
 
   return (
     <Link to={ROUTER_PATH.HERO_PROFILE.replace(':heroId', id)}>
-      <p>{name}</p>
+      <p>{name.toUpperCase()}</p>
       <img src={image} alt={name} />
     </Link>
   );
