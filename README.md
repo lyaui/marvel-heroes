@@ -28,3 +28,17 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+## TODO
+
+code splitting
+error boundary
+lazy loading
+optimize images by size
+https://freefrontend.com/css-pixel-art/
+https://github.com/remix-run/react-router/issues/7634
+cancellation
+profile not found
+Radar
+queryKey constants
