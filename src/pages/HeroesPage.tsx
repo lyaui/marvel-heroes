@@ -5,6 +5,7 @@ import HeroList from '@/components/HeroList';
 function HeroesPage() {
   return (
     <>
+      HEROS
       <HeroList />
       <Outlet />
     </>

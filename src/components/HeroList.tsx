@@ -62,7 +62,7 @@ const SHeroList = styled.ul`
   flex-wrap: wrap;
   gap: 10px;
   & li {
-    width: calc(100% / 6);
+    width: calc(100% / 5 - 10px);
   }
 `;
 
