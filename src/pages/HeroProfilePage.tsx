@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import AbilityPanel from '@/pages/AbilityPanel';
+import AbilityPanel from '@/components/AbilityPanel';
 
 function HeroProfilePage() {
   const { heroId = '' } = useParams();

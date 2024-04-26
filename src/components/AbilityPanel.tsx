@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import type { HeroProfile } from '@/types/hero';
 import { apiGetHeroProfile } from '@/api/heroes';
 import calcTotalPoints from '@/utils/calcTotalPoints';
-import AbilityCounter from '@/pages/AbilityCounter';
-import SaveButton from '@/pages/SaveButton';
+import AbilityCounter from '@/components/AbilityCounter';
+import SaveButton from '@/components/SaveButton';
 
 type AbilityPanelProps = {
   heroId: string;
