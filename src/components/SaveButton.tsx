@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
+import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
 import { apiPatchHeroProfile } from '@/api/heroes';
 
@@ -16,7 +17,9 @@ function SaveButton({ heroId, editingAbility }: SaveButtonProps) {
     mutationFn: () => apiPatchHeroProfile(heroId, editingAbility),
     onSuccess: () => {
       // TODO toast
-      queryClient.invalidateQueries({ queryKey: [heroId] });
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.HERO_PROFILE, heroId],
+      });
     },
   });
 

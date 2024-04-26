@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
 import { apiGetHeroProfile } from '@/api/heroes';
 import calcTotalPoints from '@/utils/calcTotalPoints';
@@ -19,7 +20,7 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
 
   const { isPending, data } = useQuery({
     enabled: !!heroId,
-    queryKey: [heroId],
+    queryKey: [QUERY_KEYS.HERO_PROFILE, heroId],
     queryFn: () => apiGetHeroProfile(heroId),
   });
 

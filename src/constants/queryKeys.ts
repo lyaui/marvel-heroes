@@ -1,0 +1,6 @@
+const QUERY_KEYS = {
+  HERO_LIST: 'HERO_LIST',
+  HERO_PROFILE: 'HERO_PROFILE',
+};
+
+export default QUERY_KEYS;

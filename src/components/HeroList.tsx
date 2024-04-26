@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
+import QUERY_KEYS from '@/constants/queryKeys';
 import { apiGetHeroList } from '@/api/heroes';
 import HeroCard from '@/components/HeroCard';
 
@@ -9,7 +10,7 @@ const HeroList = () => {
   const { heroId } = useParams();
 
   const { isLoading, data = [] } = useQuery({
-    queryKey: [],
+    queryKey: [QUERY_KEYS.HERO_LIST],
     queryFn: apiGetHeroList,
   });
 
