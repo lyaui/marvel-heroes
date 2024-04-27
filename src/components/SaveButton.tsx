@@ -1,8 +1,78 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import styled from 'styled-components';
 
 import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
 import { apiPatchHeroProfile } from '@/api/heroes';
+
+const SButton = styled.button<{ disabled: boolean }>`
+  position: relative;
+  height: 46px;
+  min-width: 100px;
+
+  padding: 0 10px;
+  text-transform: uppercase;
+  cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
+  line-height: 46px;
+  background-color: #e62429;
+  margin-left: 15px;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s;
+
+  &:hover:enabled {
+    filter: brightness(1.25);
+  }
+
+  &:active:enabled {
+    filter: brightness(0.9);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -14.8px;
+    background-color: inherit;
+    height: 46px;
+    width: 15px;
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -14.8px;
+    background-color: inherit;
+    height: 46px;
+    width: 15px;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  }
+`;
+
+const SSpinner = styled.div`
+  margin: 0 auto;
+  width: 20px;
+  padding: 2px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e3e3e3;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+
+  @keyframes l3 {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+`;
 
 type SaveButtonProps = {
   heroId: string;
@@ -24,14 +94,14 @@ function SaveButton({ heroId, editingAbility }: SaveButtonProps) {
   });
 
   const handleUpdateClick = () => {
+    if (isPending) return;
     mutate();
   };
 
-  // TODO spinner
   return (
-    <button onClick={handleUpdateClick} disabled={isPending}>
-      SAVE
-    </button>
+    <SButton onClick={handleUpdateClick} disabled={isPending}>
+      {isPending ? <SSpinner /> : 'save'}
+    </SButton>
   );
 }
 
