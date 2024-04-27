@@ -14,7 +14,7 @@ const SButton = styled.button<{ disabled: boolean }>`
   text-transform: uppercase;
   cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
   line-height: 46px;
-  background-color: #e62429;
+  background-color: ${(props) => (props.disabled ? '#cccccc' : '#e62429')};
   margin-left: 15px;
   border: none;
   color: #ffffff;
@@ -30,25 +30,23 @@ const SButton = styled.button<{ disabled: boolean }>`
     filter: brightness(0.9);
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -14.8px;
-    background-color: inherit;
-    height: 46px;
-    width: 15px;
-    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
-  }
-
+  &:before,
   &:after {
     content: '';
     position: absolute;
     top: 0;
-    right: -14.8px;
-    background-color: inherit;
     height: 46px;
     width: 15px;
+    background-color: inherit;
+  }
+
+  &:before {
+    left: -14.8px;
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  &:after {
+    right: -14.8px;
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
   }
 `;
@@ -77,9 +75,14 @@ const SSpinner = styled.div`
 type SaveButtonProps = {
   heroId: string;
   editingAbility: HeroProfile;
+  restPoints: number;
 };
 
-function SaveButton({ heroId, editingAbility }: SaveButtonProps) {
+function SaveButton({
+  heroId,
+  editingAbility,
+  restPoints = 0,
+}: SaveButtonProps) {
   const queryClient = useQueryClient();
 
   // TODO rest points errormessage
@@ -99,7 +102,7 @@ function SaveButton({ heroId, editingAbility }: SaveButtonProps) {
   };
 
   return (
-    <SButton onClick={handleUpdateClick} disabled={isPending}>
+    <SButton onClick={handleUpdateClick} disabled={restPoints !== 0}>
       {isPending ? <SSpinner /> : 'save'}
     </SButton>
   );
