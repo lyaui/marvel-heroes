@@ -10,7 +10,6 @@ import AbilityCounter from '@/components/AbilityCounter';
 import SaveButton from '@/components/SaveButton';
 
 const SAbilityPanel = styled.div`
-  max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -21,7 +20,6 @@ const SCounterWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 800px;
 `;
 
 type AbilityPanelProps = {
