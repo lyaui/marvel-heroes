@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { router } from '@/routes';
 import img_dsk from '/public/assets/images/header_bg_dsk.jpg';
+import Typography from '@/components/UI/Typography';
 
 const SHeader = styled.header`
   height: 240px;
@@ -16,27 +17,16 @@ const SHeader = styled.header`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: white;
   text-align: center;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  & h2 {
-    text-transform: uppercase;
-    font-size: 40px;
-    font-weight: 800;
-    letter-spacing: 5px;
-  }
 `;
 
 export const SContainer = styled.div`
   max-width: 1200px;
   padding: 20px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 `;
 
 const queryClient = new QueryClient({
@@ -53,11 +43,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <SHeader>
         <SContainer>
-          <h2>marvel</h2>
-          <p>
+          <Typography size='ex-large' color='light' as='h1'>
+            marvel
+          </Typography>
+          <Typography color='light'>
             Get hooked on a hearty helping of heroes and villains from the
             humble House of Ideas!
-          </p>
+          </Typography>
         </SContainer>
       </SHeader>
       <RouterProvider router={router} />

@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import sectionImg from '/public/assets/images/profile_section_bg_dsk.jpg';
 import { SContainer } from '@/App.tsx';
-import { SSectionTitle } from '@/pages/HeroesPage';
+import { SectionTitle } from '@/components/UI/Typography';
 import AbilityPanel from '@/components/AbilityPanel';
 
 const SHeroProfileSection = styled.section`
@@ -11,14 +12,14 @@ const SHeroProfileSection = styled.section`
   margin-top: 50px;
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
     ),
-    url(http://i.annihil.us/u/prod/marvel/i/mg/6/90/537ba6d49472b/standard_xlarge.jpg);
+    url(${sectionImg});
 
   background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   color: white;
 `;
 
@@ -28,7 +29,7 @@ function HeroProfilePage() {
   return (
     <SHeroProfileSection>
       <SContainer>
-        <SSectionTitle color='light'>Profile</SSectionTitle>
+        <SectionTitle color='light'>Profile</SectionTitle>
         <AbilityPanel heroId={heroId} />
       </SContainer>
     </SHeroProfileSection>
