@@ -42,7 +42,7 @@ const SHeroCardContent = styled.div<{ isSelected: boolean }>`
     width: 100%;
     bottom: 0;
     transition: all 0.3s;
-    background-color: ${(props) => (props.isSelected ? '#e62429' : '#000000')};
+    background-color: ${(props) => (props.isSelected ? '#e62429' : '#151515')};
   }
 `;
 
