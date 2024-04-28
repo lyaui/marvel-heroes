@@ -1,16 +1,18 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { SContainer } from '@/App.tsx';
 import HeroList from '@/components/HeroList';
 
-const SSectionTitle = styled.h3`
+export const SSectionTitle = styled.h3<{ color?: 'light' | 'dark' }>`
+  position: relative;
   height: 66px;
   line-height: 66px;
-  position: relative;
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1px;
+  color: ${(props) => (props.color === 'light' ? '#ffffff' : '#151515')};
 
   &:before,
   &:after {
@@ -37,8 +39,10 @@ const SSectionTitle = styled.h3`
 function HeroesPage() {
   return (
     <>
-      <SSectionTitle>marvel heroes</SSectionTitle>
-      <HeroList />
+      <SContainer>
+        <SSectionTitle>marvel heroes</SSectionTitle>
+        <HeroList />
+      </SContainer>
       <Outlet />
     </>
   );
