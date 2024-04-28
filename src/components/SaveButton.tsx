@@ -9,7 +9,6 @@ const SButton = styled.button<{ disabled: boolean }>`
   position: relative;
   height: 46px;
   min-width: 100px;
-
   padding: 0 10px;
   text-transform: uppercase;
   cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
@@ -101,9 +100,15 @@ function SaveButton({
     mutate();
   };
 
+  const buttonText = restPoints === 0 ? 'save' : `rest points ${restPoints}`;
+
   return (
-    <SButton onClick={handleUpdateClick} disabled={restPoints !== 0}>
-      {isPending ? <SSpinner /> : 'save'}
+    <SButton
+      onClick={handleUpdateClick}
+      disabled={restPoints !== 0}
+      style={{ margin: 'auto' }}
+    >
+      {isPending ? <SSpinner /> : buttonText}
     </SButton>
   );
 }
