@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const SAbilityCounter = styled.div`
-  width: 150px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   color: #ffffff;
   text-align: center;
   gap: 10px;
   opacity: 0.7;
   transition: all 0.3s;
+  font-weight: 700;
   &:hover {
     opacity: 1;
   }
@@ -16,8 +17,11 @@ export const SAbilityCounter = styled.div`
 
 export const SFigure = styled.span`
   color: #ffffff;
-  font-size: 80px;
-  font-weight: 700;
+  font-size: 60px;
+
+  @media (max-width: 480px) {
+    font-size: 48px;
+  }
 `;
 
 export const SCounterBtn = styled.button`
