@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { SHeroList } from '@/components/HeroList/styled';
 import QUERY_KEYS from '@/constants/queryKeys';
 import { apiGetHeroList } from '@/api/heroes';
+import Typography from '@/components/UI/Typography';
 import HeroCard from '@/components/HeroCard';
 
 const HeroList = () => {
@@ -21,7 +22,13 @@ const HeroList = () => {
   };
 
   if (isLoading) return 'Loading...';
-  if (data.length === 0) return 'No Results';
+  if (data.length === 0) {
+    return (
+      <Typography style={{ textAlign: 'center', padding: 40 }}>
+        No result found
+      </Typography>
+    );
+  }
 
   return (
     <SHeroList>
