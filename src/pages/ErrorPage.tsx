@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { ROUTER_PATH } from '@/routes';
-import { SContainer } from '@/App.tsx';
+import Container from '@/components/Layout/Container';
 import Typography from '@/components/UI/Typography';
 import Button from '@/components/UI/Button';
 function ErrorPage() {
@@ -11,7 +11,7 @@ function ErrorPage() {
   };
 
   return (
-    <SContainer>
+    <Container style={{ marginTop: 60, textAlign: 'center' }}>
       <Typography size='large'>404 PAGE NOT FOUND</Typography>
       <Typography>
         Check that you typed the address correctly, <br />
@@ -19,9 +19,9 @@ function ErrorPage() {
         something specific.
       </Typography>
       <Button style={{ marginTop: 50 }} onClick={handleGoHeroesPage}>
-        go heroes
+        heroooooes!
       </Button>
-    </SContainer>
+    </Container>
   );
 }
 

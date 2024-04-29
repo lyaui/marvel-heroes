@@ -1,16 +1,16 @@
 import { Outlet } from 'react-router-dom';
 
-import { SContainer } from '@/App.tsx';
 import { SectionTitle } from '@/components/UI/Typography';
+import Container from '@/components/Layout/Container';
 import HeroList from '@/components/HeroList';
 
 function HeroesPage() {
   return (
     <>
-      <SContainer>
+      <Container>
         <SectionTitle>marvel heroes</SectionTitle>
         <HeroList />
-      </SContainer>
+      </Container>
       <Outlet />
     </>
   );

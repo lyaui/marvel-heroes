@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import sectionImg from '/public/assets/images/profile_section_bg_dsk.jpg';
-import { SContainer } from '@/App.tsx';
+import Container from '@/components/Layout/Container';
 import { SectionTitle } from '@/components/UI/Typography';
 import AbilityPanel from '@/components/AbilityPanel';
 
@@ -29,10 +29,10 @@ function HeroProfilePage() {
 
   return (
     <SHeroProfileSection>
-      <SContainer>
+      <Container>
         <SectionTitle color='light'>Profile</SectionTitle>
         <AbilityPanel heroId={heroId} />
-      </SContainer>
+      </Container>
     </SHeroProfileSection>
   );
 }
