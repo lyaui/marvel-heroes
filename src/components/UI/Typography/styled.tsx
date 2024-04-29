@@ -8,14 +8,15 @@ export const STypography = styled(
     createElement(as, props, children),
 )`
   color: ${(props) => (props.color === 'light' ? '#ffffff' : '#151515')};
+  line-height: 1.5;
   margin: ${(props) => {
-    if (props.size === 'ex-large') return '30px 0';
-    if (props.size === 'large') return '20px 0';
+    if (props.size === 'ex-large' || props.size === 'large') return '10px 0';
     return 0;
   }};
   font-size: ${(props) => {
     if (props.size === 'ex-large') return '40px';
     if (props.size === 'large') return '24px';
+    if (props.size === 'small') return '14px';
     return '16px';
   }};
   text-transform: ${(props) => {

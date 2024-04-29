@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, CSSProperties } from 'react';
 
 import { STypography, SSectionTitle } from '@/components/UI/Typography/styled';
 
@@ -10,22 +10,19 @@ export type TypographyProps = {
   as?: Tag;
   size?: Size;
   color?: color;
+  style?: CSSProperties;
   children: ReactNode;
 };
 
-export type SectionTitleProps = {
-  as?: Tag;
-  size?: Size;
-  color?: 'light' | 'dark';
-  children: ReactNode;
-};
+export type SectionTitleProps = Omit<TypographyProps, 'size'>;
 
 export const SectionTitle = ({
+  as = 'h3',
   color = 'dark',
   children,
-}: SectionTitleProps) => {
+}: TypographyProps) => {
   return (
-    <SSectionTitle size='large' color={color}>
+    <SSectionTitle size='large' as={as} color={color}>
       {children}
     </SSectionTitle>
   );
@@ -34,10 +31,11 @@ function Typography({
   children = '',
   size = 'medium',
   color = 'dark',
+  style = {},
   ...others
 }: TypographyProps) {
   return (
-    <STypography size={size} color={color} {...others}>
+    <STypography size={size} color={color} style={style} {...others}>
       {children}
     </STypography>
   );
