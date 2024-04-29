@@ -4,23 +4,23 @@ export const SAbilityCounter = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  color: #ffffff;
+  color: var(--color-white);
   text-align: center;
   gap: 10px;
   opacity: 0.7;
-  transition: all 0.3s;
-  font-weight: 700;
+  transition: var(--transition);
+  font-weight: var(--font-bold);
   &:hover {
     opacity: 1;
   }
 `;
 
 export const SFigure = styled.span`
-  color: #ffffff;
-  font-size: 60px;
+  color: var(--color-white);
+  font-size: var(--text-xl);
 
   @media (max-width: 480px) {
-    font-size: 48px;
+    font-size: var(--text-gl);
   }
 `;
 
@@ -28,6 +28,6 @@ export const SCounterBtn = styled.button`
   background-color: unset;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: var(--text-md);
   cursor: pointer;
 `;

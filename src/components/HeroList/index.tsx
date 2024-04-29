@@ -9,7 +9,10 @@ import Typography from '@/components/UI/Typography';
 import HeroCard from '@/components/HeroCard';
 
 export const SkeletonHeroList = () => (
-  <SkeletonTheme baseColor='#cecece' highlightColor='#bebebe'>
+  <SkeletonTheme
+    baseColor='var(--color-skeleton-bg)'
+    highlightColor='var(--color-skeleton-highlight-bg)'
+  >
     {Array.from(Array(5).keys()).map((index) => (
       <div key={index}>
         <Skeleton style={{ marginBottom: '10px' }} height={200} width='100%' />

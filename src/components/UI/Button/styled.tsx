@@ -8,13 +8,15 @@ export const SButton = styled.button<{ disabled: boolean }>`
   text-transform: uppercase;
   cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
   line-height: 46px;
-  background-color: ${(props) => (props.disabled ? '#cccccc' : '#e62429')};
+  background-color: var(
+    ${(props) => (props.disabled ? '--color-gray-100' : '--color-primary')}
+  );
   margin-left: 15px;
   border: none;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  transition: all 0.3s;
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  transition: var(--transition);
 
   &:hover:enabled {
     filter: brightness(1.25);

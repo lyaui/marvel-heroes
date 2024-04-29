@@ -4,7 +4,7 @@ export const SHeroCardImage = styled.div<{ isSelected: boolean }>`
   height: 200px;
   overflow: hidden;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 
   & img {
     width: 100%;
@@ -21,8 +21,8 @@ export const SHeroCardTitle = styled.p`
   width: 100%;
   position: absolute;
   padding: 16px;
-  color: #ffffff;
-  font-weight: 700;
+  color: var(--color-white);
+  font-weight: var(--font-bold);
   z-index: 1;
 `;
 
@@ -38,15 +38,17 @@ export const SHeroCardContent = styled.div<{ isSelected: boolean }>`
     height: 50px;
     width: 100%;
     bottom: 0;
-    transition: all 0.3s;
-    background-color: ${(props) => (props.isSelected ? '#e62429' : '#151515')};
+    transition: var(--transition);
+    background-color: var(
+      ${(props) => (props.isSelected ? '--color-primary' : '--color-text-dark')}
+    );
   }
 `;
 
 export const SHeroCard = styled.ul`
   position: relative;
   height: 255px;
-  background-color: #e62429;
+  background-color: var(--color-primary);
   cursor: pointer;
 
   &:before {
@@ -55,13 +57,13 @@ export const SHeroCard = styled.ul`
     content: '';
     bottom: -1px;
     right: -1px;
-    border-bottom: 17px solid #ffffff;
+    border-bottom: 17px solid var(--color-bg);
     border-left: 17px solid transparent;
   }
 
   &:hover img {
     transform: scale(1.05);
-    transition: all 0.3s;
+    transition: var(--transition);
   }
 
   &:hover ${SHeroCardContent}::before {

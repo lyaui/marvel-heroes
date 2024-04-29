@@ -7,7 +7,8 @@ import { SectionTitle } from '@/components/UI/Typography';
 import AbilityPanel from '@/components/AbilityPanel';
 
 const SHeroProfileSection = styled.section`
-  background-color: #151515;
+  background-color: var(--color-black);
+  height: 400px;
   padding: 20px 0;
   margin-top: 50px;
   background-image: linear-gradient(
@@ -20,7 +21,7 @@ const SHeroProfileSection = styled.section`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: white;
+  color: var(--color-white);
 `;
 
 function HeroProfilePage() {

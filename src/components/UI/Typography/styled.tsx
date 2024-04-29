@@ -7,17 +7,20 @@ export const STypography = styled(
   ({ as = 'p', children, ...props }: TypographyProps) =>
     createElement(as, props, children),
 )`
-  color: ${(props) => (props.color === 'light' ? '#ffffff' : '#151515')};
+  color: ${(props) =>
+    props.color === 'light'
+      ? 'var(--color-text-light)'
+      : 'var(--color-text-dark)'};
   line-height: 1.5;
   margin: ${(props) => {
     if (props.size === 'ex-large' || props.size === 'large') return '10px 0';
     return 0;
   }};
   font-size: ${(props) => {
-    if (props.size === 'ex-large') return '40px';
-    if (props.size === 'large') return '24px';
-    if (props.size === 'small') return '14px';
-    return '16px';
+    if (props.size === 'ex-large') return '4rem';
+    if (props.size === 'large') return '2.4rem';
+    if (props.size === 'small') return '1.4rem';
+    return '1.6rem';
   }};
   text-transform: ${(props) => {
     if (props.size === 'ex-large' || props.size === 'large') return 'uppercase';

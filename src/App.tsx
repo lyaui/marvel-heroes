@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
@@ -43,6 +44,7 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  useEffect(() => {}, []);
   return (
     <QueryClientProvider client={queryClient}>
       <SHeader>
