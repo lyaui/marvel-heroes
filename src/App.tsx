@@ -21,6 +21,10 @@ const SHeader = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 600px) {
+    height: 200px;
+  }
 `;
 
 export const SContainer = styled.div`
