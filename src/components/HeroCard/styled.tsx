@@ -1,9 +1,6 @@
-import { memo } from 'react';
 import styled from 'styled-components';
 
-import type { Hero } from '@/types/hero';
-
-const SHeroCardImage = styled.div<{ isSelected: boolean }>`
+export const SHeroCardImage = styled.div<{ isSelected: boolean }>`
   height: 200px;
   overflow: hidden;
   cursor: pointer;
@@ -20,7 +17,7 @@ const SHeroCardImage = styled.div<{ isSelected: boolean }>`
   }
 `;
 
-const SHeroCardTitle = styled.p`
+export const SHeroCardTitle = styled.p`
   width: 100%;
   position: absolute;
   padding: 16px;
@@ -29,7 +26,7 @@ const SHeroCardTitle = styled.p`
   z-index: 1;
 `;
 
-const SHeroCardContent = styled.div<{ isSelected: boolean }>`
+export const SHeroCardContent = styled.div<{ isSelected: boolean }>`
   position: absolute;
   bottom: 0;
   height: 50px;
@@ -46,7 +43,7 @@ const SHeroCardContent = styled.div<{ isSelected: boolean }>`
   }
 `;
 
-const SHeroCard = styled.ul`
+export const SHeroCard = styled.ul`
   position: relative;
   height: 255px;
   background-color: #e62429;
@@ -71,27 +68,3 @@ const SHeroCard = styled.ul`
     height: 0%;
   }
 `;
-
-type HeroCardProps = {
-  hero: Hero;
-  isSelected: boolean;
-};
-
-const HeroCard = memo(({ hero, isSelected }: HeroCardProps) => {
-  const { name = '--', image = '' } = hero;
-
-  return (
-    <SHeroCard>
-      <SHeroCardImage isSelected={isSelected}>
-        <img src={image} alt={name} />
-      </SHeroCardImage>
-      <SHeroCardContent isSelected={isSelected}>
-        <SHeroCardTitle>{name.toUpperCase()}</SHeroCardTitle>
-      </SHeroCardContent>
-    </SHeroCard>
-  );
-});
-
-HeroCard.displayName = 'HeroCard';
-
-export default HeroCard;
