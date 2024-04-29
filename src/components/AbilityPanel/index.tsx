@@ -5,22 +5,13 @@ import styled from 'styled-components';
 import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
 import { apiGetHeroProfile } from '@/api/heroes';
+import {
+  SAbilityPanel,
+  SCounterWrapper,
+} from '@/components/AbilityPanel/styled';
 import calcTotalPoints from '@/utils/calcTotalPoints';
 import AbilityCounter from '@/components/AbilityCounter';
 import SaveButton from '@/components/SaveButton';
-
-const SAbilityPanel = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding-right: 20px;
-`;
-
-const SCounterWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-`;
 
 type AbilityPanelProps = {
   heroId: string;
