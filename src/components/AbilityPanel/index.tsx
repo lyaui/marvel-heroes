@@ -51,6 +51,7 @@ function AbilityPanel() {
         const updateVal = { ..._preState, [name]: value };
         const updateTotal = calcTotalPoints(updateVal);
 
+        // update total points must less than initial total points
         if (updateTotal > totalPoints) return _preState;
 
         return updateVal;

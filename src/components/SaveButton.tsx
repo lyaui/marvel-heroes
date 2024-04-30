@@ -28,6 +28,8 @@ function SaveButton({
   });
 
   const handleUpdateClick = () => {
+    // rest points must be zero upon saving
+    if (restPoints !== 0) return;
     mutate();
   };
 

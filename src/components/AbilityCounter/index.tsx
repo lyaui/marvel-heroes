@@ -16,6 +16,7 @@ const AbilityCounter = memo(
   ({ name, value, onUpdate }: AbilityCounterProps) => {
     const handleDecrementClick = () => {
       const updateVal = value - 1;
+      // ability value must greater than 0
       if (updateVal < 0) return;
       onUpdate(name, updateVal);
     };
