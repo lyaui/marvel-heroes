@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Router from '@/routes';
 import Header from '@/components/Layout/Header';
+import Spinner from '@/components/UI/Spinner';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,7 +18,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <Router />
+      <Suspense fallback={<Spinner style={{ marginTop: 100 }} width={50} />}>
+        <Router />
+      </Suspense>
     </QueryClientProvider>
   );
 }
