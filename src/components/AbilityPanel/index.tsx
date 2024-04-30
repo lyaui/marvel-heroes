@@ -12,6 +12,7 @@ import {
 import calcTotalPoints from '@/utils/calcTotalPoints';
 import AbilityCounter from '@/components/AbilityCounter';
 import SaveButton from '@/components/SaveButton';
+import Typography from '@/components/UI/Typography';
 
 export const SkeletonCounter = () => (
   <SkeletonTheme
@@ -35,7 +36,7 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
     null,
   );
 
-  const { isPending, data } = useQuery({
+  const { isPending, isError, data } = useQuery({
     enabled: !!heroId,
     queryKey: [QUERY_KEYS.HERO_PROFILE, heroId],
     queryFn: () => apiGetHeroProfile(heroId),
@@ -69,10 +70,27 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
     return <SkeletonCounter />;
   }
 
+  if (isError) {
+    return (
+      <Typography
+        size='large'
+        color='light'
+        style={{ marginTop: 100, textAlign: 'center' }}
+      >
+        Something went wrong...
+      </Typography>
+    );
+  }
+
   if (!editingAbility) return null;
 
   return (
     <SAbilityPanel>
+      {isError && (
+        <Typography size='large' color='light'>
+          Something went wrong
+        </Typography>
+      )}
       <SCounterWrapper>
         {Object.entries(editingAbility).map(([_key, _value]) => (
           <AbilityCounter
