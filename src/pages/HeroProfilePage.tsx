@@ -7,7 +7,7 @@ import AbilityPanel from '@/components/AbilityPanel';
 
 const SHeroProfileSection = styled.section`
   background-color: var(--color-black);
-  height: 400px;
+  height: 480px;
   padding: 20px 0;
   margin-top: 50px;
   background-image: linear-gradient(

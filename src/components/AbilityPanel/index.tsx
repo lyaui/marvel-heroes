@@ -84,27 +84,35 @@ function AbilityPanel() {
 
   return (
     <SAbilityPanel>
-      {isError && (
+      {isError ? (
         <Typography size='large' color='light'>
           Something went wrong
         </Typography>
-      )}
-      <SCounterWrapper>
-        {Object.entries(editingAbility).map(([_key, _value]) => (
-          <AbilityCounter
-            key={_key}
-            name={_key as keyof HeroProfile}
-            value={_value}
-            onUpdate={handleUpdateAbility}
+      ) : (
+        <>
+          <Typography color='light'>
+            {`Rest Points: ${restPoints}`}
+            <br />
+            Adjust hero abilities with rest points. Ensure zero rest points upon
+            saving.
+          </Typography>
+          <SCounterWrapper>
+            {Object.entries(editingAbility).map(([_key, _value]) => (
+              <AbilityCounter
+                key={_key}
+                name={_key as keyof HeroProfile}
+                value={_value}
+                onUpdate={handleUpdateAbility}
+              />
+            ))}
+          </SCounterWrapper>
+          <SaveButton
+            editingAbility={editingAbility}
+            heroId={heroId}
+            restPoints={restPoints}
           />
-        ))}
-      </SCounterWrapper>
-
-      <SaveButton
-        editingAbility={editingAbility}
-        heroId={heroId}
-        restPoints={restPoints}
-      />
+        </>
+      )}
     </SAbilityPanel>
   );
 }
