@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import sectionImg from '/public/assets/images/profile_section_bg_dsk.jpg';
@@ -25,13 +24,11 @@ const SHeroProfileSection = styled.section`
 `;
 
 function HeroProfilePage() {
-  const { heroId = '' } = useParams();
-
   return (
     <SHeroProfileSection>
       <Container>
         <SectionTitle color='light'>Profile</SectionTitle>
-        <AbilityPanel heroId={heroId} />
+        <AbilityPanel />
       </Container>
     </SHeroProfileSection>
   );

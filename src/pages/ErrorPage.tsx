@@ -4,6 +4,7 @@ import { ROUTER_PATH } from '@/routes';
 import Container from '@/components/Layout/Container';
 import Typography from '@/components/UI/Typography';
 import Button from '@/components/UI/Button';
+
 function ErrorPage() {
   const navigate = useNavigate();
   const handleGoHeroesPage = () => {

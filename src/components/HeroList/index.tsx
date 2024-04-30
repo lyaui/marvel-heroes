@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import { ROUTER_PATH } from '@/routes';
 import { SHeroList } from '@/components/HeroList/styled';
 import QUERY_KEYS from '@/constants/queryKeys';
 import { apiGetHeroList } from '@/api/heroes';
@@ -33,7 +34,7 @@ const HeroList = () => {
 
   const onClick = (id: string) => {
     if (heroId === id) return;
-    navigate(`/heroes/${id}`);
+    navigate(ROUTER_PATH.HERO_PROFILE.replace(':heroId', id));
   };
 
   if (isPending) {

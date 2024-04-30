@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useParams } from 'react-router-dom';
 
 import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
@@ -27,11 +28,8 @@ export const SkeletonCounter = () => (
   </SkeletonTheme>
 );
 
-type AbilityPanelProps = {
-  heroId: string;
-};
-
-function AbilityPanel({ heroId }: AbilityPanelProps) {
+function AbilityPanel() {
+  const { heroId = '' } = useParams();
   const [editingAbility, setEditingAbility] = useState<HeroProfile | null>(
     null,
   );
