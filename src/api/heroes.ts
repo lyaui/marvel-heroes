@@ -7,7 +7,6 @@ const heroesApi = axios.create({
   baseURL: `${BASE_URL}/heroes`,
 });
 
-// TODO error handling
 export const apiGetHeroList = async (): Promise<Hero[]> => {
   const res = await heroesApi.get('/');
   return res.data;
