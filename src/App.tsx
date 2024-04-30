@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { RouterProvider } from 'react-router-dom';
 
-import { router } from '@/routes';
+import Router from '@/routes';
 import Header from '@/components/Layout/Header';
 
 const queryClient = new QueryClient({
@@ -17,7 +16,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <RouterProvider router={router} />
+      <Router />
     </QueryClientProvider>
   );
 }

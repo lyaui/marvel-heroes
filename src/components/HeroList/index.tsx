@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { ROUTER_PATH } from '@/routes';
+import ROUTER_PATH from '@/constants/routerPath';
 import { SHeroList } from '@/components/HeroList/styled';
 import QUERY_KEYS from '@/constants/queryKeys';
 import { apiGetHeroList } from '@/api/heroes';

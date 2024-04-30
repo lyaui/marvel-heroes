@@ -1,16 +1,13 @@
-import { createBrowserRouter } from 'react-router-dom';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import HomePage from '@/pages/HomePage';
-import HeroesPage from '@/pages/HeroesPage';
-import HeroProfilePage from '@/pages/HeroProfilePage';
-import ErrorPage from '@/pages/ErrorPage';
+import ROUTER_PATH from '@/constants/routerPath';
+const HomePage = React.lazy(() => import('@/pages/HomePage'));
+const HeroesPage = React.lazy(() => import('@/pages/HeroesPage'));
+const HeroProfilePage = React.lazy(() => import('@/pages/HeroProfilePage'));
+const ErrorPage = React.lazy(() => import('@/pages/ErrorPage'));
 
-export const ROUTER_PATH = {
-  HEROES: '/heroes',
-  HERO_PROFILE: '/heroes/:heroId',
-};
-
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <ErrorPage />,
@@ -32,3 +29,9 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+const Routes = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default Routes;

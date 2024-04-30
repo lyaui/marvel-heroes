@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { ROUTER_PATH } from '@/routes';
+import ROUTER_PATH from '@/constants/routerPath';
 import Button from '@/components/UI/Button';
 
 function HomePage() {
