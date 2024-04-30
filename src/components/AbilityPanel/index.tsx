@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import QUERY_KEYS from '@/constants/queryKeys';
 import type { HeroProfile } from '@/types/hero';
@@ -11,6 +12,19 @@ import {
 import calcTotalPoints from '@/utils/calcTotalPoints';
 import AbilityCounter from '@/components/AbilityCounter';
 import SaveButton from '@/components/SaveButton';
+
+export const SkeletonCounter = () => (
+  <SkeletonTheme
+    baseColor='var(--color-skeleton-dark-bg)'
+    highlightColor='var(--color-skeleton-highlight-dark-bg)'
+  >
+    <SCounterWrapper>
+      {Array.from(Array(4).keys()).map((index) => (
+        <Skeleton key={index} height={160} width='100%' />
+      ))}
+    </SCounterWrapper>
+  </SkeletonTheme>
+);
 
 type AbilityPanelProps = {
   heroId: string;
@@ -51,7 +65,10 @@ function AbilityPanel({ heroId }: AbilityPanelProps) {
     setEditingAbility(data);
   }, [data]);
 
-  if (isPending) return 'Loading';
+  if (isPending) {
+    return <SkeletonCounter />;
+  }
+
   if (!editingAbility) return null;
 
   return (

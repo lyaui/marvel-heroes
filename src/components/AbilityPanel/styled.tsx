@@ -9,5 +9,9 @@ export const SAbilityPanel = styled.div`
 export const SCounterWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 50px;
+  column-gap: 20px;
+
+  & > * {
+    text-align: center;
+  }
 `;

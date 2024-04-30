@@ -23,6 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-gray-100: #dddddd;
     --color-gray-200: #cecece;
     --color-gray-300: #bebebe;
+    --color-gray-800: #525252;
+    --color-gray-900: #373737;
 
     /* refer to root CSS variables */
     --color-text-light: var(--color-white);
@@ -31,6 +33,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary: var(--color-red);
     --color-skeleton-bg: var(--color-gray-200);
     --color-skeleton-highlight-bg: var(--color-gray-300);
+    --color-skeleton-dark-bg: var(--color-gray-900);
+    --color-skeleton-highlight-dark-bg: var(--color-gray-800);
   }
 
   *, *:before, *:after {

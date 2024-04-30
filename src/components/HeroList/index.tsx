@@ -26,7 +26,7 @@ const HeroList = () => {
   const navigate = useNavigate();
   const { heroId } = useParams();
 
-  const { isLoading, data = [] } = useQuery({
+  const { isPending, data = [] } = useQuery({
     queryKey: [QUERY_KEYS.HERO_LIST],
     queryFn: apiGetHeroList,
   });
@@ -36,7 +36,7 @@ const HeroList = () => {
     navigate(`/heroes/${id}`);
   };
 
-  if (isLoading) {
+  if (isPending) {
     return (
       <SHeroList>
         <SkeletonHeroList />

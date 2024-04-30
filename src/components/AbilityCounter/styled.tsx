@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const SAbilityCounter = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   color: var(--color-white);
   text-align: center;
   gap: 10px;
